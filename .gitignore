@@ -1,3 +1,11 @@
+# Mac Specific Files
+.DS_Store
+
+# Migrations
+migrations/
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
