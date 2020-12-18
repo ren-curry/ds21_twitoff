@@ -3,9 +3,11 @@ SQLAlchemy models and utility functions for Twitoff
 """
 
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate()
 
 # Instantiate our SQLAlchemy class "Database"
 DB = SQLAlchemy()
+MIGRATE = Migrate()
 
 
 # Database Table creations with SQLAlchemy

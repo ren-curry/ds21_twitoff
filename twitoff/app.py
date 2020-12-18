@@ -3,7 +3,7 @@ Main app/routing file for Twitoff
 """
 from os import getenv
 from flask import Flask, render_template, request
-from .models import DB, User
+from .models import DB, MIGRATE, User
 
 from twitoff.routes.home_routes import home_routes
 from twitoff.routes.prediction_routes import prediction_routes
@@ -18,6 +18,7 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = getenv('APP_DB_URL')
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     DB.init_app(app)
+    MIGRATE.init_app(app, DB)
 
     app.register_blueprint(home_routes)
     app.register_blueprint(prediction_routes)

@@ -38,6 +38,20 @@ TWITTER_API_KEY="______________"
 TWITTER_API_KEY_SECRET="__________"
 ```
 
+### Setup the Database
+
+Using the [`Flask-Migrate` package](https://flask-migrate.readthedocs.io/en/latest/) to simplify database creation and migration:
+
+```sh
+#pipenv install Flask-Migrate # (first time only, afterwards this should be in the Pipfile)
+```
+
+```sh
+FLASK_APP=twitoff flask db init #> generates migrations dir
+FLASK_APP=twitoff flask db migrate #> creates the db (with "alembic_version" table)
+FLASK_APP=twitoff flask db upgrade #> creates tables in the db for each model
+```
+
 ## Usage
 
 ```sh
