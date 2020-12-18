@@ -19,7 +19,7 @@ def compare():
         predict_tweet_text = request.values["tweet_text"]
         # prediction return zero or one depending upon user
         prediction = binary_predict_user(user0, user1, predict_tweet_text)
-        message = "The tweet is more likely to be said by {} than {}".format(
+        message = "... is more likely to be said by '{}' than '{}'".format(
             user1 if prediction == user1 else user0,
             user0 if prediction == user1 else user1
             )
@@ -27,4 +27,5 @@ def compare():
     # returns rendered template with dynamic message
     return render_template('prediction.html',
                            title="Prediction:",
+                           predict_tweet=predict_tweet_text,
                            message=message)
